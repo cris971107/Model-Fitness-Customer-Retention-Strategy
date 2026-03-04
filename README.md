@@ -59,7 +59,6 @@ Identify and analyze the key factors that impact retention, such as social ties,
 │
 └── visuals/                  # Exported charts, dashboard screenshots, ERD diagrams
 
-
 ```
 
 
@@ -70,30 +69,16 @@ Identify and analyze the key factors that impact retention, such as social ties,
 
 ## 4. Data processing and methodology
 
-The dataset includes user data from the previous month, visit logs, and current membership status.
+The project was executed within a Jupyter Notebook using Python and libraries such as Pandas, Scikit-learn, and Seaborn.
 
-Exploratory Data Analysis (EDA): Cleaned the dataset and analyzed mean values for Churn vs. Non-Churn groups.
+EDA & Cleaning: Analyzed features like Lifetime, Age, and Contract_period. Created distribution plots to compare "Churn" vs. "Stay" groups.
 
-Predictive Modeling: Compared Logistic Regression and Random Forest models. Evaluated performance using Accuracy, Precision, and Recall metrics.
+Feature Engineering: Standardized the data to ensure the distance-based clustering algorithms performed accurately.
 
-User Clustering: * Standardized features and created a distance matrix (dendrogram).
+Predictive Modeling: Trained and compared Logistic Regression and Random Forest classifiers. Models were evaluated based on Accuracy, Precision, and Recall.
 
-Applied K-means (n=5) to group users by behavioral patterns.
+Clustering: Generated a distance matrix and dendrogram to determine the optimal number of clusters, followed by a K-means (n=5) segmentation.
 
-Correlation Analysis: Built a correlation matrix to identify features with high impact on the target variable (Churn).
-
-# Methods Used
-
-Descriptive statistics for event distribution per user.
-
-Funnel analysis (Login -> Product Page -> Cart -> Purchase).
-
-Z-test for independent proportions (Alpha = 0.05).
-
-`visuals/Captura de pantalla 2026-03-04 000520.png`
-
-
-<img width="1237" height="347" alt="Captura de pantalla 2026-03-04 000520" src="https://github.com/user-attachments/assets/099547b0-04fa-453f-9509-09ed71cd0560" />
 
 ---
 
@@ -120,8 +105,13 @@ Z-test for independent proportions (Alpha = 0.05).
 
 The analysis reveals that the most at-risk customers are typically younger individuals (averaging 26-27 years old) who join the gym without social ties, such as "Bring a Friend" promotions or corporate partner discounts. These users tend to work or live further away from the facility and rarely participate in group sessions, leading to a lack of community integration. In contrast, loyal members are generally older (30+), live or work in the immediate vicinity, and are highly engaged in group activities. Proximity and social engagement emerge as the strongest predictors of long-term commitment, suggesting that churn is largely driven by a lack of social habit and the physical inconvenience of distance.
 
-`visuals/Captura de pantalla 2026-03-03 234335.png`
-<img width="1013" height="541" alt="Captura de pantalla 2026-03-03 234335" src="https://github.com/user-attachments/assets/2779e75f-c676-41e7-954f-43ae299933a9" />
+`visuals/Captura de pantalla 2026-03-04 131053.png`
+
+<img width="1020" height="735" alt="Captura de pantalla 2026-03-04 131053" src="https://github.com/user-attachments/assets/94d72f06-02f9-40e0-a3c2-bef4ac0bcea2" />
+
+`visuals/Captura de pantalla 2026-03-04 131033.png`
+
+<img width="1006" height="732" alt="Captura de pantalla 2026-03-04 131033" src="https://github.com/user-attachments/assets/c1c4d163-7f06-46c4-b8a8-3e14be5734bb" />
 
 ---
 
@@ -130,7 +120,7 @@ The analysis reveals that the most at-risk customers are typically younger indiv
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| Code | Jupyter Notebook containing EDA, Funnel Visualizations, and Z-test results. | `notebooks/Sprint-15S-2.ipynb` |
+| Code | Jupyter Notebook containing EDA, Funnel Visualizations, and Z-test results. | `notebooks/Sprint-14.ipynb` |
 
 
 
