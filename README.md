@@ -1,15 +1,16 @@
 # A/B Test Analysis
-Analyzed the performance of a new recommendation engine through an A/B test to determine if it significantly improved user conversion across the sales funnel.
+The "Model Fitness" gym chain is developing a data-driven strategy to combat customer churn. This project analyzes digitalized customer profiles to predict the probability of attrition for the next month
+
 ---
 
 ## ⚙️ Project Type Flags
 
 - [x] Exploratory Data Analysis (EDA)
-- [x] SQL Analysis / Querying
-- [x] Dashboard / Data Visualization
+- [ ] SQL Analysis / Querying
+- [ ] Dashboard / Data Visualization
 - [ ] Data Pipeline / ETL
-- [ ] Predictive Modelling / Machine Learning
-- [ ] Data Cleaning / Wrangling
+- [x] Predictive Modelling / Machine Learning
+- [x] Data Cleaning / Wrangling
 - [ ] End-to-End (multiple of the above)
 - [ ] Other: ___________
 
@@ -29,20 +30,21 @@ Analyzed the performance of a new recommendation engine through an A/B test to d
 
 ## 1. Project Overview
 
-This report summarizes the statistical evaluation of an A/B test conducted to measure the impact of a new recommendation system on user behavior. By leveraging detailed event logs and user data, the analysis identifies whether the proposed changes successfully optimized the purchasing funnel or adversely affected the user experience.
+This project focuses on analyzing customer behavior for the "Model Fitness" gym chain to combat churn (customer attrition). By analyzing digitalized user profiles, the goal is to predict the probability of loss for the next month, identify typical user segments, and design a data-driven retention strategy.
 
 ---
 
 ## 2. Objectives
 
 Primary Objective:
-Compare the conversion rates and activity levels of the control group (System A) against the test group (System B).
+Develop a binary classification model to predict the likelihood of customer churn for the upcoming month, enabling proactive intervention.
 
 Secondary Objective 1:
-Utilize hypothesis testing (z-tests) to determine if observed differences are statistically significant or merely due to random chance.
+Perform user segmentation using unsupervised learning (K-means clustering) to create detailed personas and understand the distinct characteristics of loyal vs. at-risk members.
 
 Secondary Objective 2:
-Clean and process raw interaction data to ensure metrics such as total event sums and counts are accurate for final evaluation.
+Identify and analyze the key factors that impact retention, such as social ties, age, and gym usage, to provide actionable recommendations for the marketing and customer service teams.
+
 
 ---
 
@@ -68,11 +70,17 @@ Clean and process raw interaction data to ensure metrics such as total event sum
 
 ## 4. Data processing and methodology
 
-The analysis utilized a refined dataset, referred to in the code as res_clean, which aggregated user interactions.
+The dataset includes user data from the previous month, visit logs, and current membership status.
 
-Metric Definition: The core metrics focused on the total sum of events (sum) and the frequency of interactions (count) per unique user.
+Exploratory Data Analysis (EDA): Cleaned the dataset and analyzed mean values for Churn vs. Non-Churn groups.
 
-Refinement Logic: Data was processed to eliminate outliers and ensure that only relevant events within the experimental window were included in the final z-test.
+Predictive Modeling: Compared Logistic Regression and Random Forest models. Evaluated performance using Accuracy, Precision, and Recall metrics.
+
+User Clustering: * Standardized features and created a distance matrix (dendrogram).
+
+Applied K-means (n=5) to group users by behavioral patterns.
+
+Correlation Analysis: Built a correlation matrix to identify features with high impact on the target variable (Churn).
 
 # Methods Used
 
@@ -110,11 +118,7 @@ Z-test for independent proportions (Alpha = 0.05).
   Aim for 3–6 insights. Quality over quantity.
 -->
 
-The data revealed a clear trend regarding the experimental group:
-
-Performance Degradation: The new system did not just fail to improve metrics; it actively worsened the user experience or the efficiency of the purchase funnel.
-
-Statistical Confidence: The p-value decreased slightly during the final stages of analysis. In statistical terms, a lower p-value strengthens the rejection of the null hypothesis, confirming that the negative impact observed was not a random fluke but a consistent result of the new system.
+The analysis reveals that the most at-risk customers are typically younger individuals (averaging 26-27 years old) who join the gym without social ties, such as "Bring a Friend" promotions or corporate partner discounts. These users tend to work or live further away from the facility and rarely participate in group sessions, leading to a lack of community integration. In contrast, loyal members are generally older (30+), live or work in the immediate vicinity, and are highly engaged in group activities. Proximity and social engagement emerge as the strongest predictors of long-term commitment, suggesting that churn is largely driven by a lack of social habit and the physical inconvenience of distance.
 
 `visuals/Captura de pantalla 2026-03-03 234335.png`
 <img width="1013" height="541" alt="Captura de pantalla 2026-03-03 234335" src="https://github.com/user-attachments/assets/2779e75f-c676-41e7-954f-43ae299933a9" />
@@ -135,10 +139,13 @@ Statistical Confidence: The p-value decreased slightly during the final stages o
 
 ## 7. Final verdict and recommendations
 
-Result: The A/B test is considered a failure in terms of optimization.
+Verdict: The Random Forest model provided the best balance of precision and recall for predicting churn. Social engagement and location remain the strongest predictors of long-term loyalty.
 
-Action: It is strongly recommended not to deploy the new recommendation system. Further investigation is needed to understand why the algorithm interfered with the purchase process.
+Recommendations: * Targeted Social Programs: Create referral incentives for younger members to increase their "Social Ties."
 
+Group Class Onboarding: Focus on converting solo members into group session participants during their first month.
+
+Location-Based Ads: Focus marketing efforts on a tight radius around the gym to attract members with higher "Near_Location" scores.
 
 ---
 
