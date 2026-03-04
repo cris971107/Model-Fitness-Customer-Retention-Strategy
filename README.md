@@ -1,5 +1,5 @@
 # Model Fitness: Data-Driven Customer Retention
-The "Model Fitness" gym chain is developing a data-driven strategy to combat customer churn. This project analyzes digitalized customer profiles to predict the probability of attrition for the next month
+The "Model Fitness" gym chain is developing a data-driven strategy to combat customer churn. This project analyzes digitalized customer profiles to predict the probability of attrition for the next month.
 
 ---
 
